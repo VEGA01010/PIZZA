@@ -1,0 +1,172 @@
+CREATE TABLE Pizzaiolo (
+    id INT PRIMARY KEY,
+    nome VARCHAR(100),
+    salario DECIMAL(10, 2)
+);
+
+CREATE TABLE Embalagem (
+    id INT PRIMARY KEY,
+    material VARCHAR(100),
+    tamanho VARCHAR(50),
+    preco DECIMAL(10, 2)
+);
+
+CREATE TABLE Receita (
+    id INT PRIMARY KEY,
+    instrucoes TEXT,
+    autor VARCHAR(100)
+);
+
+CREATE TABLE Pizza (
+    id INT PRIMARY KEY,
+    tamanho VARCHAR(50),
+    descricao TEXT,
+    preco DECIMAL(10, 2),
+    sabor VARCHAR(100),
+    ingredientes TEXT,
+    embalagem_id INT,
+    receita_id INT,
+    FOREIGN KEY (embalagem_id) REFERENCES Embalagem(id),
+    FOREIGN KEY (receita_id) REFERENCES Receita(id)
+);
+
+INSERT INTO Pizzaiolo (id, nome, salario)
+VALUES
+    (1, 'Carlos', 2500.00),
+    (2, 'Ana', 2200.00),
+    (3, 'Marta', 2000.00),
+    (4, 'Rafael', 2600.00),
+    (5, 'Fernanda', 2300.00),
+    (6, 'Lucas', 2400.00),
+    (7, 'Juliana', 2100.00),
+    (8, 'Marcelo', 2700.00),
+    (9, 'Isabela', 1900.00),
+    (10, 'Ricardo', 2800.00),
+    (11, 'Aline', 2050.00),
+    (12, 'Gabriel', 2150.00),
+    (13, 'Patrícia', 1950.00),
+    (14, 'Paulo', 2450.00),
+    (15, 'Camila', 2350.00),
+    (16, 'José', 2550.00),
+    (17, 'Roberta', 2250.00),
+    (18, 'Fábio', 2900.00),
+    (19, 'Vivian', 2700.00),
+    (20, 'Leonardo', 3100.00),
+    (21, 'Mariana', 2950.00),
+    (22, 'Gustavo', 2850.00),
+    (23, 'Tatiane', 2600.00),
+    (24, 'Diego', 2450.00),
+    (25, 'Cristina', 2000.00),
+    (26, 'Rodrigo', 2100.00),
+    (27, 'André', 2200.00),
+    (28, 'Carolina', 2350.00),
+    (29, 'Sandra', 2250.00),
+    (30, 'Luiz', 2400.00);
+
+INSERT INTO Embalagem (id, material, tamanho, preco)
+VALUES
+    (1, 'Papelão', 'Pequena', 1.50),
+    (2, 'Plástico', 'Média', 2.00),
+    (3, 'Papel', 'Grande', 2.50),
+    (4, 'Papelão', 'Média', 2.00),
+    (5, 'Plástico', 'Pequena', 1.50),
+    (6, 'Papel', 'Média', 2.00),
+    (7, 'Plástico', 'Grande', 2.50),
+    (8, 'Papel', 'Pequena', 1.50),
+    (9, 'Papelão', 'Grande', 2.50),
+    (10, 'Plástico', 'Média', 2.00),
+    (11, 'Papel', 'Pequena', 1.50),
+    (12, 'Papelão', 'Grande', 2.50),
+    (13, 'Plástico', 'Média', 2.00),
+    (14, 'Papelão', 'Pequena', 1.50),
+    (15, 'Papel', 'Grande', 2.50),
+    (16, 'Plástico', 'Pequena', 1.50),
+    (17, 'Papelão', 'Média', 2.00),
+    (18, 'Papel', 'Grande', 2.50),
+    (19, 'Plástico', 'Pequena', 1.50),
+    (20, 'Papel', 'Média', 2.00),
+    (21, 'Papelão', 'Grande', 2.50),
+    (22, 'Plástico', 'Pequena', 1.50),
+    (23, 'Papelão', 'Média', 2.00),
+    (24, 'Papel', 'Grande', 2.50),
+    (25, 'Plástico', 'Pequena', 1.50),
+    (26, 'Papelão', 'Média', 2.00),
+    (27, 'Papel', 'Grande', 2.50),
+    (28, 'Plástico', 'Pequena', 1.50),
+    (29, 'Papel', 'Média', 2.00),
+    (30, 'Papelão', 'Grande', 2.50);
+
+INSERT INTO Receita (id, instrucoes, autor)
+VALUES
+    (1, 'Misture a farinha com a água...', 'Chef Giovanni'),
+    (2, 'Corte os tomates em rodelas...', 'Chef Carla'),
+    (3, 'Tempere o frango com sal e pimenta...', 'Chef Marcela'),
+    (4, 'Prepare o molho branco derretendo a manteiga...', 'Chef Roberto'),
+    (5, 'Refogue a cebola e o alho no azeite...', 'Chef Bruna'),
+    (6, 'Corte a calabresa em rodelas finas...', 'Chef Luiz'),
+    (7, 'Prepare a massa misturando a farinha...', 'Chef Juliana'),
+    (8, 'Frite a cebola até dourar...', 'Chef André'),
+    (9, 'Misture o cream cheese com o açúcar...', 'Chef Ana Paula'),
+    (10, 'Cozinhe o macarrão al dente...', 'Chef Marcos'),
+    (11, 'Asse a carne no forno pré-aquecido...', 'Chef Fernanda'),
+    (12, 'Cozinhe o arroz em água fervente...', 'Chef Thiago'),
+    (13, 'Faça um creme batendo as gemas com o açúcar...', 'Chef Silvia'),
+    (14, 'Prepare a massa de acordo com as instruções da embalagem...', 'Chef Marcelo'),
+    (15, 'Refogue a carne moída com cebola e alho...', 'Chef Fabiana'),
+    (16, 'Misture o leite condensado com o suco de limão...', 'Chef Daniel'),
+    (17, 'Prepare o recheio misturando o queijo com o presunto...', 'Chef Renata'),
+    (18, 'Bata as claras em neve...', 'Chef Henrique'),
+    (19, 'Ferva o leite com a baunilha...', 'Chef Rafaela'),
+    (20, 'Prepare a gelatina conforme as instruções da embalagem...', 'Chef Pedro'),
+    (21, 'Bata a massa no liquidificador até ficar homogênea...', 'Chef Luciana'),
+    (22, 'Asse a massa em forma untada...', 'Chef Gabriel'),
+    (23, 'Cozinhe o feijão até ficar macio...', 'Chef Gabriela'),
+    (24, 'Misture o leite com o açúcar e leve ao fogo até ferver...', 'Chef Rodrigo'),
+    (25, 'Prepare o molho vermelho refogando os tomates...', 'Chef Vivian'),
+    (26, 'Derreta o chocolate em banho-maria...', 'Chef Eduardo'),
+    (27, 'Bata o creme de leite na batedeira até ficar firme...', 'Chef Laura'),
+    (28, 'Cozinhe o espaguete em água fervente com sal...', 'Chef Carlos'),
+    (29, 'Asse a massa de acordo com as instruções da embalagem...', 'Chef Marina'),
+    (30, 'Misture o creme de leite com o suco de limão...', 'Chef Gustavo');
+
+INSERT INTO Pizza (id, tamanho, descricao, preco, sabor, ingredientes, embalagem_id, receita_id)
+VALUES
+    (1, 'Grande', 'Pizza de Calabresa', 30.00, 'Calabresa', 'Molho de tomate, calabresa, cebola, queijo', 3, 1),
+    (2, 'Média', 'Pizza de Frango com Catupiry', 25.00, 'Frango com Catupiry', 'Molho de tomate, frango desfiado, catupiry, milho', 2, 2),
+    (3, 'Pequena', 'Pizza Margherita', 20.00, 'Margherita', 'Molho de tomate, muçarela, tomate, manjericão', 1, 3),
+    (4, 'Grande', 'Pizza Quatro Queijos', 35.00, 'Quatro Queijos', 'Molho de tomate, muçarela, parmesão, gorgonzola, provolone', 7, 4),
+    (5, 'Média', 'Pizza Portuguesa', 27.00, 'Portuguesa', 'Molho de tomate, presunto, mussarela, ovo, cebola, azeitona, tomate, pimentão', 6, 5),
+    (6, 'Pequena', 'Pizza de Calabresa com Catupiry', 22.00, 'Calabresa com Catupiry', 'Molho de tomate, calabresa, catupiry', 5, 6),
+    (7, 'Grande', 'Pizza de Frango com Cheddar', 32.00, 'Frango com Cheddar', 'Molho de tomate, frango desfiado, cheddar', 9, 7),
+    (8, 'Média', 'Pizza de Palmito', 26.00, 'Palmito', 'Molho de tomate, palmito, cebola, azeitona, queijo', 8, 8),
+    (9, 'Pequena', 'Pizza de Atum', 23.00, 'Atum', 'Molho de tomate, atum, cebola, queijo, azeitona', 4, 9),
+    (10, 'Grande', 'Pizza de Bacon', 33.00, 'Bacon', 'Molho de tomate, bacon, mussarela, tomate, orégano', 12, 10),
+    (11, 'Média', 'Pizza de Calabresa com Bacon', 28.00, 'Calabresa com Bacon', 'Molho de tomate, calabresa, bacon, mussarela, cebola', 10, 11),
+    (12, 'Pequena', 'Pizza de Chocolate', 25.00, 'Chocolate', 'Chocolate derretido, leite condensado, morango', 11, 12),
+    (13, 'Grande', 'Pizza de Camarão', 35.00, 'Camarão', 'Molho de tomate, camarão, cebola, queijo, tomate, azeitona', 13, 13),
+    (14, 'Média', 'Pizza de Frango com Milho', 26.00, 'Frango com Milho', 'Molho de tomate, frango desfiado, milho, queijo', 14, 14),
+    (15, 'Pequena', 'Pizza de Banana', 23.00, 'Banana', 'Banana, canela, leite condensado', 15, 15),
+    (16, 'Grande', 'Pizza de Abacaxi com Canela', 32.00, 'Abacaxi com Canela', 'Molho de tomate, abacaxi, canela, queijo', 16, 16),
+    (17, 'Média', 'Pizza de Frango com Ervilha', 28.00, 'Frango com Ervilha', 'Molho de tomate, frango desfiado, ervilha, queijo', 17, 17),
+    (18, 'Pequena', 'Pizza de Chocolate com Morango', 25.00, 'Chocolate com Morango', 'Chocolate derretido, morango, leite condensado', 18, 18),
+    (19, 'Grande', 'Pizza de Escarola', 33.00, 'Escarola', 'Molho de tomate, escarola refogada, queijo, cebola', 19, 19),
+    (20, 'Média', 'Pizza de Frango com Batata Palha', 28.00, 'Frango com Batata Palha', 'Molho de tomate, frango desfiado, batata palha, queijo', 20, 20),
+    (21, 'Pequena', 'Pizza de Morango com Chocolate', 25.00, 'Morango com Chocolate', 'Chocolate derretido, morango, leite condensado', 21, 21),
+    (22, 'Grande', 'Pizza de Bacalhau', 35.00, 'Bacalhau', 'Molho de tomate, bacalhau desfiado, cebola, azeitona, queijo', 22, 22),
+    (23, 'Média', 'Pizza de Frango com Catupiry', 30.00, 'Frango com Catupiry', 'Molho de tomate, frango desfiado, catupiry', 23, 23),
+    (24, 'Pequena', 'Pizza de Banana com Chocolate', 26.00, 'Banana com Chocolate', 'Banana, chocolate derretido, leite condensado', 24, 24),
+    (25, 'Grande', 'Pizza de Carne Seca com Catupiry', 35.00, 'Carne Seca com Catupiry', 'Molho de tomate, carne seca desfiada, catupiry, cebola, azeitona', 25, 25),
+    (26, 'Média', 'Pizza de Frango com Requeijão', 30.00, 'Frango com Requeijão', 'Molho de tomate, frango desfiado, requeijão, milho, azeitona', 26, 26),
+    (27, 'Pequena', 'Pizza de Brigadeiro', 25.00, 'Brigadeiro', 'Brigadeiro, granulado', 27, 27),
+    (28, 'Grande', 'Pizza de Palmito com Bacon', 35.00, 'Palmito com Bacon', 'Molho de tomate, palmito, bacon, mussarela, cebola, azeitona', 28, 28),
+    (29, 'Média', 'Pizza de Banana com Canela', 30.00, 'Banana com Canela', 'Banana, canela, leite condensado', 29, 29),
+    (30, 'Pequena', 'Pizza de Frango com Catupiry', 25.00, 'Frango com Catupiry', 'Molho de tomate, frango desfiado, catupiry', 30, 30);
+    
+    
+SELECT Pizza.descricao, Pizzaiolo.nome FROM Pizza JOIN Pizzaiolo ON Pizza.id = Pizzaiolo.id;
+
+SELECT Pizza.descricao, Pizza.ingredientes FROM Pizza;
+
+SELECT Ingredientes.ingredientes, Pizza.descricao FROM ( SELECT Pizza.id, GROUP_CONCAT(DISTINCT Pizza.ingredientes) as ingredientes FROM Pizza GROUP BY Pizza.id ) as Ingredientes JOIN Pizza ON Ingredientes.id = Pizza.id;
+
+SELECT Pizza.sabor, Pizzaiolo.nome, Receita.instrucoes FROM Pizza JOIN Pizzaiolo ON Pizza.id = Pizzaiolo.id JOIN Receita ON Pizza.receita_id = Receita.id;
